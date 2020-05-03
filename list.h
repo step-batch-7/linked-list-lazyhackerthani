@@ -45,5 +45,8 @@ Status clear_list(List_ptr); // Removes all elements in the list
 void destroy_list(List_ptr); // Frees the elements and the list structure from memory
 
 List *create_list();
+Node *create_node(int value);
 
+List *add_first_element(List *number_list, Node *node);
+List *add_second_element(List *number_list, Node *node);
 #endif
