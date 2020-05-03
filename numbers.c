@@ -8,7 +8,7 @@ int main(void)
   int value;
   do
   {
-    printf("Main Menu\n---------\n(a) add a number to the end of the list\n");
+    printf("Main Menu\n---------\n(a) add a number to the end of the list\n(b) add a number to the start of the list\n");
     scanf(" %c", &operation_type);
     
     switch (operation_type)
@@ -18,8 +18,13 @@ int main(void)
     scanf("%d", &value);
     add_to_end(list, value);
     break;
-
+case 'b':
+    printf("enter the number to add : ");
+    scanf("%d", &value);
+    add_to_start(list, value);
+    break;
     default:
+      printf("invalid option\n");
       break;
     }
     

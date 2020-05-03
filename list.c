@@ -32,6 +32,29 @@ Status add_to_end(List* number_list,int value){
 
   return operation_status;
 }
+Status add_to_start(List* number_list, int value){
+  Status operation_status;
+  Node *curr_node = create_node(value);
+    operation_status = curr_node == NULL ? Failure : Success;
+    if (number_list->count==0)
+    {
+      add_first_element(number_list, curr_node);
+    }else if (number_list->count==1)
+    {
+      number_list->last = number_list->head;
+      number_list->head= curr_node;
+      number_list->head->next = number_list->last;
+      number_list->count++;
+    }
+    else
+    {
+      curr_node->next = number_list->head;
+      number_list->head = curr_node;
+      number_list->count++;
+    }
+
+  return operation_status;
+}
 
 List * add_first_element(List* number_list,Node * node){
   number_list->head = node;
