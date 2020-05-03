@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include"list.h"
+#include<stdio.h>
 List * create_list(){
   List *new_list = calloc(1, sizeof(List));
   return new_list;
@@ -39,7 +40,21 @@ List * add_first_element(List* number_list,Node * node){
 }
 
 List * add_second_element(List* number_list,Node * node){
+  number_list->head->next = node;
   number_list->last = node;
   number_list->count++;
   return number_list;
+}
+
+void print_list_elements(List * list){
+  int index = list->count;
+  Node *curr_node = list->head;
+  printf(" List |-> ");
+  while (index > 0)
+  {
+    printf("%d -> ", curr_node->value);
+    curr_node = curr_node->next;
+    index--;
+  }
+  printf("\n");
 }

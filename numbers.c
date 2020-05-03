@@ -14,15 +14,17 @@ int main(void)
     switch (operation_type)
     {
     case 'a':
-    printf("enter the number to add");
+    printf("enter the number to add : ");
     scanf("%d", &value);
-      break;
-    
+    add_to_end(list, value);
+    break;
+
     default:
       break;
     }
     
-    printf("do you want to continue(press y for yes and any key for no)?");
+     print_list_elements(list);
+    printf("\ndo you want to continue(press y for yes and any key for no)?");
     scanf(" %c", &continue_option);
   } while (continue_option == 'y');
 
