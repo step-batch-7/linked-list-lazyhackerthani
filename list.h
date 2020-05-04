@@ -50,4 +50,5 @@ Node *create_node(int value);
 List *add_first_element(List *number_list, Node *node);
 List *add_second_element(List *number_list, Node *node);
 void print_list_elements(List *list);
+int get_index_of(int value,List * list);
 #endif

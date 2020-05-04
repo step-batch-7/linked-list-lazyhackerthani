@@ -88,6 +88,33 @@ if (position==0)
 return operation_status;
 }
 
+Status add_unique(List* number_list, int value){
+  Status operation_status;
+  Node *curr_node = create_node(value);
+  int index = get_index_of(value, number_list);
+  if(curr_node == NULL ||index>=0){
+    operation_status = Failure;
+    return operation_status;
+  }
+  add_to_end(number_list,value);
+  operation_status = Success;
+  return operation_status;
+}
+
+int get_index_of(int value,List * list){
+  int position = -1;
+  int index = 0;
+  Node *curr_node = list->head;
+  while(position<0&&index<list->count){
+    if(curr_node->value==value){
+      position = index;
+    }
+    index++;
+    curr_node = curr_node->next;
+  }
+  return position;
+}
+
 List * add_first_element(List* number_list,Node * node){
   number_list->head = node;
   number_list->count++;

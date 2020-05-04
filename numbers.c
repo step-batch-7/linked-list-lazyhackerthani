@@ -8,28 +8,33 @@ int main(void)
   Status operation_status;
   do
   {
-    printf("Main Menu\n---------\n(a) add a number to the end of the list\n(b) add a number to the start of the list\n(c) insert a number at a given position in the list\n");
+    printf("Main Menu\n---------\n(a) add a number to the end of the list\n(b) add a number to the start of the list\n(c) insert a number at a given position in the list\n(d) add a unique item on the list at the end\n");
     scanf(" %c", &operation_type);
     
     switch (operation_type)
     {
     case 'a':
-    printf("enter the number to add : ");
-    scanf("%d", &value);
-    add_to_end(list, value);
-    break;
-case 'b':
-    printf("enter the number to add : ");
-    scanf("%d", &value);
-    add_to_start(list, value);
-    break;
+     printf("enter the number to add : ");
+     scanf("%d", &value);
+     add_to_end(list, value);
+     break;
+    case 'b':
+     printf("enter the number to add : ");
+     scanf("%d", &value);
+     add_to_start(list, value);
+     break;
     case 'c':
-    printf("enter the number to add : ");
-    scanf("%d", &value);
-    printf("enter the position to add : ");
-    scanf("%d", &position);
-    insert_at(list, value, position);
-    break;
+     printf("enter the number to add : ");
+     scanf("%d", &value);
+     printf("enter the position to add : ");
+     scanf("%d", &position);
+     insert_at(list, value, position);
+     break;
+     case 'd':
+     printf("enter the number to add : ");
+     scanf("%d", &value);
+     add_unique(list, value);
+     break;
     default:
       printf("invalid option\n");
       break;
