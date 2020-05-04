@@ -140,3 +140,15 @@ void print_list_elements(List * list){
   }
   printf("\n");
 }
+
+Status remove_from_start(List * list){
+  Status operation_status;
+  if(list->count <= 0){
+    operation_status = Failure;
+    return operation_status;
+  }
+  list->head = list->head->next;
+  list->count--;
+  operation_status = Success;
+  return operation_status;
+}
