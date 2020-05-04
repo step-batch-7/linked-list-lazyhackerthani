@@ -152,3 +152,30 @@ Status remove_from_start(List * list){
   operation_status = Success;
   return operation_status;
 }
+
+Status remove_from_end(List * list){
+  Status operation_status;
+  if(list->count <= 0){
+    operation_status = Failure;
+    return operation_status;
+  }
+  Node *previous_of_last_node = get_nth_node(list, list->count - 1);
+  list->last = previous_of_last_node;
+  list->count--;
+  operation_status = Success;
+  return operation_status;
+}
+
+Node * get_nth_node(List * list,int position){
+  int index = 0;
+  if(list->count<position ||position<0){
+    return NULL;
+  }
+  Node *curr_node = list->head;
+  while (index < position)
+  {
+    curr_node = curr_node->next;
+    index++;
+  }
+  return curr_node;
+}
