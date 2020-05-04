@@ -56,6 +56,38 @@ Status add_to_start(List* number_list, int value){
   return operation_status;
 }
 
+Status insert_at(List* number_list, int value, int position){
+  Status operation_status;
+  Node *curr_node = create_node(value);
+    operation_status = curr_node == NULL ? Failure : Success;
+if(position>number_list->count || position<0 ){
+  operation_status = Failure;
+  return operation_status;
+}
+if (position==0)
+    {
+      add_to_start(number_list, value);
+    }
+    else if (position==number_list->count)
+    {
+      add_to_end(number_list, value);
+    }else
+    {
+      int index = 0;
+      Node *temp_node=number_list->head;
+      while (index<position-1)
+      {
+        temp_node = temp_node->next;
+        index++;
+      }
+      curr_node->next = temp_node->next;
+      temp_node->next = curr_node;
+      number_list->count++;
+    }
+
+return operation_status;
+}
+
 List * add_first_element(List* number_list,Node * node){
   number_list->head = node;
   number_list->count++;
