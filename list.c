@@ -228,3 +228,23 @@ while (temp_status != Failure)
 }
 return operation_status;
 }
+
+Status clear_list(List * list){
+  Status operation_status;
+  int index = list->count-1;
+  if(list->count<=0){
+    operation_status = Failure;
+    return operation_status;
+  }
+  Node *curr_node=list->head;
+  while (index >= 0)
+  {
+    Node *node_to_delete=curr_node;
+    curr_node = curr_node->next;
+    list->count--;
+    free(node_to_delete);
+    index--;
+  }
+  operation_status = Success;
+return operation_status;
+}
