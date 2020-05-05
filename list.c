@@ -120,6 +120,7 @@ int get_index_of(int value,List * list){
 
 List * add_first_element(List* number_list,Node * node){
   number_list->head = node;
+  number_list->last = node;
   number_list->count++;
   return number_list;
 }
