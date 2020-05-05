@@ -205,3 +205,16 @@ operation_status = Success;
 list->count--;
 return operation_status;
 }
+
+Status remove_first_occurrence(List * list, int value){
+  Status operation_status;
+  int position = get_index_of(value, list);
+  if (position<0)
+  {
+   operation_status = Failure;
+    return operation_status;
+  }
+  
+operation_status =remove_at(list,position);
+return operation_status;
+}
