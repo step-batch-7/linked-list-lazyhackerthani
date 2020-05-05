@@ -147,7 +147,9 @@ Status remove_from_start(List * list){
     operation_status = Failure;
     return operation_status;
   }
+  Node *node_to_delete = list->head;
   list->head = list->head->next;
+  free(node_to_delete);
   list->count--;
   operation_status = Success;
   return operation_status;
@@ -174,6 +176,7 @@ Status remove_from_end(List * list){
     return operation_status;
   }
   Node *previous_of_last_node = get_nth_node(list, list->count - 1);
+  free(list->last);
   list->last = previous_of_last_node;
   list->count--;
   operation_status = Success;
@@ -195,8 +198,10 @@ if(position==0){
     return operation_status;
   }
 Node *previous_node = get_nth_node(list, position - 1);
-  previous_node->next =previous_node->next!=NULL? previous_node->next->next:NULL;
-  operation_status = Success;
-  list->count--;
+Node *node_to_delete = previous_node;
+previous_node->next = previous_node->next != NULL ? previous_node->next->next : NULL;
+free(node_to_delete);
+operation_status = Success;
+list->count--;
 return operation_status;
 }
