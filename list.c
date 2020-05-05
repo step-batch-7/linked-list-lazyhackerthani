@@ -9,6 +9,7 @@ List * create_list(){
 Node * create_node(int value){
   Node *new_node = calloc(1, sizeof(Node));
   new_node->value = value;
+  new_node->next = NULL;
   return new_node;
 }
 
@@ -178,6 +179,7 @@ Status remove_from_end(List * list){
   Node *previous_of_last_node = get_nth_node(list, list->count - 1);
   free(list->last);
   list->last = previous_of_last_node;
+  list->last->next = NULL;
   list->count--;
   operation_status = Success;
   return operation_status;
