@@ -248,3 +248,10 @@ Status clear_list(List * list){
   operation_status = Success;
 return operation_status;
 }
+
+Status search(List * list,int value){
+Status operation_status;
+  int index = get_index_of(value,list);
+  operation_status = index >= 0 ? Success : Failure;
+  return operation_status;
+}

@@ -41,7 +41,7 @@ Status remove_first_occurrence(List_ptr, int value);
 Status remove_all_occurrences(List_ptr, int value);
 
 Status clear_list(List_ptr); // Removes all elements in the list
-
+Status search(List_ptr,int value);
 void destroy_list(List_ptr); // Frees the elements and the list structure from memory
 
 List *create_list();
