@@ -153,6 +153,20 @@ Status remove_from_start(List * list){
   return operation_status;
 }
 
+Node * get_nth_node(List * list,int position){
+  int index = 0;
+  if(list->count<position ||position<0){
+    return NULL;
+  }
+  Node *curr_node = list->head;
+  while (index < position)
+  {
+    curr_node = curr_node->next;
+    index++;
+  }
+  return curr_node;
+}
+
 Status remove_from_end(List * list){
   Status operation_status;
   if(list->count <= 0){
@@ -166,16 +180,23 @@ Status remove_from_end(List * list){
   return operation_status;
 }
 
-Node * get_nth_node(List * list,int position){
-  int index = 0;
-  if(list->count<position ||position<0){
-    return NULL;
-  }
-  Node *curr_node = list->head;
-  while (index < position)
+Status remove_at(List * list, int position){
+Status operation_status;
+if(position<0 || position>=list->count){
+operation_status = Failure;
+    return operation_status;
+}
+if(position==0){
+    operation_status = remove_from_start(list);
+    return operation_status;
+}if (list->count-1==position)
   {
-    curr_node = curr_node->next;
-    index++;
+    operation_status = remove_from_end(list);
+    return operation_status;
   }
-  return curr_node;
+Node *previous_node = get_nth_node(list, position - 1);
+  previous_node->next =previous_node->next!=NULL? previous_node->next->next:NULL;
+  operation_status = Success;
+  list->count--;
+return operation_status;
 }
