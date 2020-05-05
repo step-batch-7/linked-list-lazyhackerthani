@@ -22,7 +22,9 @@ Status add_to_end(List* number_list,int value){
       add_first_element(number_list, curr_node);
     }else if (number_list->count==1)
     {
-      add_second_element(number_list, curr_node);
+      number_list->head->next = curr_node;
+  number_list->last = curr_node;
+  number_list->count++;
     }
     else
     {
@@ -122,13 +124,6 @@ List * add_first_element(List* number_list,Node * node){
   return number_list;
 }
 
-List * add_second_element(List* number_list,Node * node){
-  number_list->head->next = node;
-  number_list->last = node;
-  number_list->count++;
-  return number_list;
-}
-
 void print_list_elements(List * list){
   int index = list->count;
   Node *curr_node = list->head;
@@ -176,7 +171,7 @@ Status remove_from_end(List * list){
     operation_status = Failure;
     return operation_status;
   }
-  Node *previous_of_last_node = get_nth_node(list, list->count - 1);
+  Node *previous_of_last_node = get_nth_node(list, list->count - 2);
   free(list->last);
   list->last = previous_of_last_node;
   list->last->next = NULL;
