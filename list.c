@@ -138,7 +138,7 @@ void print_list_elements(List * list){
     curr_node = curr_node->next;
     index--;
   }
-  printf("\n");
+  printf("\n\n");
 }
 
 Status remove_from_start(List * list){
