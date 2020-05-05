@@ -218,3 +218,13 @@ Status remove_first_occurrence(List * list, int value){
 operation_status =remove_at(list,position);
 return operation_status;
 }
+
+Status remove_all_occurrences(List * list, int value){
+Status operation_status=remove_first_occurrence(list,value);
+Status temp_status = operation_status;
+while (temp_status != Failure)
+{
+  temp_status=remove_first_occurrence(list,value);
+}
+return operation_status;
+}

@@ -8,7 +8,7 @@ int main(void)
   Status operation_status;
   do
   {
-    printf("Main Menu\n---------\n(a) add a number to the end of the list\n(b) add a number to the start of the list\n(c) insert a number at a given position in the list\n(d) add a unique item on the list at the end\n(e) remove a number from the beginning of the list\n(f) remove a number from the end of the list\n(g) remove a number from a given position in the list\n(h) remove first occurrence of a number\n");
+    printf("Main Menu\n---------\n(a) add a number to the end of the list\n(b) add a number to the start of the list\n(c) insert a number at a given position in the list\n(d) add a unique item on the list at the end\n(e) remove a number from the beginning of the list\n(f) remove a number from the end of the list\n(g) remove a number from a given position in the list\n(h) remove first occurrence of a number\n(i) remove all occurrences of a number\n");
     scanf(" %c", &operation_type);
     
     switch (operation_type)
@@ -50,6 +50,11 @@ int main(void)
           printf("enter the number to remove : ");
      scanf("%d", &value);
        remove_first_occurrence(list,value);
+       break;
+       case 'i':
+          printf("enter the number to remove : ");
+     scanf("%d", &value);
+       remove_all_occurrences(list,value);
        break;
        default:
          printf("invalid option\n");
