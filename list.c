@@ -196,7 +196,7 @@ if(position==0){
     return operation_status;
   }
 Node *previous_node = get_nth_node(list, position - 1);
-Node *node_to_delete = previous_node;
+Node *node_to_delete = previous_node->next;
 previous_node->next = previous_node->next != NULL ? previous_node->next->next : NULL;
 free(node_to_delete);
 operation_status = Success;

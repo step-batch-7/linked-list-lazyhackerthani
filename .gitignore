@@ -1,3 +1,5 @@
 *.o
 *.out
 output
+unit_test/*
+test.sh
